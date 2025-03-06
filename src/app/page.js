@@ -1,6 +1,7 @@
 "use client"
 import { useRef } from 'react';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
+import Form from './component/Form';
 
 export default function Slider() {
   const sliderRef = useRef(null);
@@ -14,6 +15,8 @@ export default function Slider() {
   };
 
   return (
+    <>
+    
     <div className="relative h-screen overflow-y-hidden scrollbar-hide">
       {/* Define the right-to-left animation */}
       <style>{`
@@ -50,13 +53,12 @@ export default function Slider() {
               {i === 0 ? (
                 <span>
                   Welcome to 
-                  {/* Split "Govinda" into characters with staggered animation */}
                   <span className='text-red-900'>
                     {Array.from("Govinda").map((char, index) => (
                       <span 
                         key={index} 
                         className="letter" 
-                        style={{ animationDelay: `${index * 0.1}s` }} // Adjust delay for spacing
+                        style={{ animationDelay: `${index * 0.1}s` }} 
                       >
                         {char}
                       </span>
@@ -74,7 +76,6 @@ export default function Slider() {
         ))}
       </div>
 
-      {/* Right Arrow */}
       <button 
         className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition"
         onClick={() => scroll('right')}
@@ -82,5 +83,9 @@ export default function Slider() {
         <ArrowRightIcon className="w-6 h-6 text-white" />
       </button>
     </div>
+    <section>
+      <Form/>
+    </section>
+    </>
   );
 }
