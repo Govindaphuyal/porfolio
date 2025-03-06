@@ -25,7 +25,7 @@ const login= () => {
             </div>
             <div className="flex items-center justify-between gap-8">
             <Link className="inline-block align-baseline font-bold text-sm text-cyan-500 hover:text-cyan-800"
-                    href="/create">
+                    href="/register">
                     create account
                 </Link>
                 <button
