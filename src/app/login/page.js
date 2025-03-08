@@ -1,6 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
 const login= () => {
+    async function handleSubmit(e){
+    e.preventDefault();
+    
+    }
   return (
     <div>
       <div className="bg-gray-100 min-h-screen flex items-center justify-center">
@@ -10,7 +14,7 @@ const login= () => {
 
     <div className="relative z-10 bg-white p-8 rounded-md shadow-lg">
         <h1 className="text-xl font-bold mb-4 text-black">Login</h1>
-        <form action="#" method="POST">
+        <form action="#" onSubmit={handleSubmit}>
             <div className="mb-4">
                 <label className="block text-gray-700 font-bold mb-2" for="email">Email</label>
                 <input

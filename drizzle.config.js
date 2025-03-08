@@ -6,6 +6,6 @@ export default defineConfig({
   schema: './src/db/schema.js',
   dialect: 'postgresql',
   dbCredentials: {
-    url:"postgresql://postgres.kmrbrrcyixswmpkpqhqd:connecttocluster@aws-0-ap-south-1.pooler.supabase.com:6543/postgres",
+    url:"postgresql://postgres.rdhbgalzrhekzcwerkst:connecttocluster@aws-0-ap-south-1.pooler.supabase.com:6543/postgres",
   },
 });

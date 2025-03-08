@@ -1,9 +1,61 @@
 {
-  "id": "b5cd302d-ff42-4166-aa6c-5e77dd370691",
+  "id": "fe8e039a-927e-43e0-b30a-ec693c7c07bb",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
+    "public.infos": {
+      "name": "infos",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "FullName": {
+          "name": "FullName",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Email": {
+          "name": "Email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Image": {
+          "name": "Image",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'CURRENT_TIMESTAMP'"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "infos_Email_unique": {
+          "name": "infos_Email_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "Email"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
     "public.users": {
       "name": "users",
       "schema": "",
@@ -14,8 +66,8 @@
           "primaryKey": true,
           "notNull": true
         },
-        "name": {
-          "name": "name",
+        "username": {
+          "name": "username",
           "type": "varchar(9)",
           "primaryKey": false,
           "notNull": true
@@ -26,9 +78,15 @@
           "primaryKey": false,
           "notNull": true
         },
+        "confirm_password": {
+          "name": "confirm_password",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
         "email": {
           "name": "email",
-          "type": "varchar(10)",
+          "type": "varchar(25)",
           "primaryKey": false,
           "notNull": true
         }
