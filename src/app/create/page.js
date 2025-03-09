@@ -1,8 +1,9 @@
 "use client"
 import React, { useState } from 'react'
-
+import { useRouter } from 'next/navigation';
 const Create = () => {
-  const [info, setInfo] = useState({ FullName: "", Email: "", Image: "" });
+  const router=useRouter()
+  const [info, setInfo] = useState({ FullName: "", Title: "", Image: "",description:"" });
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -15,7 +16,7 @@ const Create = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const response=await fetch('/api/portfolio',{
+      const response=await fetch('/api/info',{
         method:"POST",
         headers:{
           'Content-Type':"application/json"
@@ -30,8 +31,8 @@ const Create = () => {
       console.log("Response from server:", result);
 
       // Optionally, reset the form after submission
-      setInfo({ FullName: "", Email: "", Image: "" });
-
+      setInfo({ FullName: "", Title: "", Image: "",description:"" });
+       router.push("/")
     } catch (error) {
       console.error("Error submitting form:", error);
     }
@@ -56,16 +57,28 @@ const Create = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-white text-sm md:text-base">Email</label>
+            <label className="block text-white text-sm md:text-base">Title</label>
             <input 
-              type="email" 
+              type="text" 
               className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#106C4F]" 
-              name="Email" 
-              placeholder="john@example.com" 
-              value={info.Email}
+              name="Titile" 
+              placeholder="software" 
+              
               onChange={handleChange}
             />
           </div>
+          <div className="mb-4">
+            <label className="block text-white text-sm md:text-base">Description</label>
+            <textarea 
+              type="text" 
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#106C4F]" 
+              name="description" 
+              placeholder="message about software" 
+              
+              onChange={handleChange}
+            />
+          </div>
+          
           <div className="mb-4">
             <label className="block text-white text-sm md:text-base">Image</label>
             <input 

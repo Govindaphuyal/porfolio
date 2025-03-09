@@ -17,11 +17,10 @@ const Register = () => {
       [name]: value
     });
   }
-
+  
   async function handleSubmit(e) {
     e.preventDefault();
-
-    // Check if passwords match
+    
     if (formData.password !== formData.confirm_password) {
       alert("Passwords do not match!");
       return;
