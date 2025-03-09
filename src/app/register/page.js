@@ -55,7 +55,8 @@ const Register = () => {
     <div className="bg-gray-100 flex h-screen items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8">
         <div className="bg-white shadow-md rounded-md p-6">
-          <Image className="mx-auto h-12 w-auto" src="https://www.svgrepo.com/show/499664/user-happy.svg" alt="User Icon" />
+          <Image className="mx-auto h-12 w-auto" src="https://www.svgrepo.com/show/499664/user-happy.svg" alt="User Icon" width={500}
+      height={500}/>
 
           <h2 className="my-3 text-center text-3xl font-bold tracking-tight text-gray-900">
             Sign up for an account
@@ -78,7 +79,6 @@ const Register = () => {
               </div>
             </div>
 
-            {/* Email Input */}
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
               <div className="mt-1">

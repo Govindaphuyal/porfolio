@@ -39,15 +39,13 @@ function handleChange(e){
      }
 async function handleSubmit(e){
     e.preventDefault();
-        console.log(login)
-        console.log(user.users[0].password)
+       
         try {
             const match = await bcrypt.compare(login.password, user.users[0].password);
         
             if (match) {
                 router.push("/")
               console.log("Login successful!");
-              // Proceed with authentication (e.g., setting user state, redirecting)
             } else {
               console.log("Incorrect password!");
             }
