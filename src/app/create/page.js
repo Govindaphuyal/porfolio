@@ -30,7 +30,6 @@ const Create = () => {
       const result = await response.json();
       console.log("Response from server:", result);
 
-      // Optionally, reset the form after submission
       setInfo({ FullName: "", Title: "", Image: "",description:"" });
        router.push("/")
     } catch (error) {

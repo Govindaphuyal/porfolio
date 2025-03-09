@@ -3,8 +3,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import { usersTable } from "../../../db/schema";
 
-// Environment variables (add to .env)
- // Use strong secret in production
+
 
 export async function GET(request,token) {
   try {

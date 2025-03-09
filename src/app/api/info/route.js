@@ -2,8 +2,7 @@ import { db } from "@/db/database";
 
 import { infoTable } from "../../../db/infoschema";
 
-// Environment variables (add to .env)
- // Use strong secret in production
+
 
 export async function GET(request,) {
   try {

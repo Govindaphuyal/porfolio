@@ -56,7 +56,7 @@ const Register = () => {
       <div className="w-full max-w-md space-y-8">
         <div className="bg-white shadow-md rounded-md p-6">
           <Image className="mx-auto h-12 w-auto" src="https://www.svgrepo.com/show/499664/user-happy.svg" alt="User Icon" width={500}
-      height={500}/>
+          height={500}/>
 
           <h2 className="my-3 text-center text-3xl font-bold tracking-tight text-gray-900">
             Sign up for an account
@@ -64,7 +64,6 @@ const Register = () => {
 
           <form className="space-y-6" onSubmit={handleSubmit}>
 
-            {/* Username Input */}
             <div>
               <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
               <div className="mt-1">
