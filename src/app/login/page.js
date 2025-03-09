@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link';
 import bcrypt from "bcryptjs";
 import { useRouter } from 'next/navigation';
-const login= () => {
+const Login= () => {
     const router=useRouter()
 const[user,setUser]=useState();
 const[login,setLogin]=useState({
@@ -102,4 +102,4 @@ async function handleSubmit(e){
   )
 }
 
-export default login
+export default Login
