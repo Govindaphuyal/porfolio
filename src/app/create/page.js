@@ -1,9 +1,15 @@
-"use client"
-import React, { useState } from 'react'
-import { useRouter } from 'next/navigation';
+"use client";
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+
 const Create = () => {
-  const router=useRouter()
-  const [info, setInfo] = useState({ FullName: "", Title: "", Image: "",description:"" });
+  const router = useRouter();
+  const [info, setInfo] = useState({
+    FullName: "",
+    Title: "",
+    Image: "",
+    description: "",
+  });
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -16,86 +22,104 @@ const Create = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const response=await fetch('/api/info',{
-        method:"POST",
-        headers:{
-          'Content-Type':"application/json"
+      const response = await fetch("/api/info", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        body:JSON.stringify(info)
-      })
+        body: JSON.stringify(info),
+      });
       if (!response.ok) {
-        throw new Error('Failed to submit data');
+        throw new Error("Failed to submit data");
       }
 
       const result = await response.json();
       console.log("Response from server:", result);
 
-      setInfo({ FullName: "", Title: "", Image: "",description:"" });
-       router.push("/")
+      setInfo({ FullName: "", Title: "", Image: "", description: "" });
+      router.push("/");
     } catch (error) {
       console.error("Error submitting form:", error);
     }
-      
-    }
-    
+  }
 
   return (
-    <div className='relative left-[500px] h-20 w-[50vh] mt-9'>
-      <div className="step-content">
-        <h2 className="text-lg md:text-2xl font-semibold mb-4">Personal Info</h2>
+    <div className="flex justify-center items-center min-h-screen bg-gray-900">
+      <div className="w-full max-w-lg p-6 bg-white rounded-lg shadow-md">
+        <h2 className="text-lg font-semibold text-center text-gray-800 mb-6 md:text-xl">
+          Personal Info
+        </h2>
         <form onSubmit={handleSubmit}>
+          {/* Full Name */}
           <div className="mb-4">
-            <label className="block text-white text-sm md:text-base">Full Name</label>
-            <input 
-              type="text" 
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#106C4F]" 
-              name="FullName" 
-              placeholder="John Doe" 
+            <label className="block text-sm font-medium text-gray-700">
+              Full Name
+            </label>
+            <input
+              type="text"
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#106C4F]"
+              name="FullName"
+              placeholder="John Doe"
               value={info.FullName}
               onChange={handleChange}
             />
           </div>
+
+          {/* Title */}
           <div className="mb-4">
-            <label className="block text-white text-sm md:text-base">Title</label>
-            <input 
-              type="text" 
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#106C4F]" 
-              name="Titile" 
-              placeholder="software" 
-              
+            <label className="block text-sm font-medium text-gray-700">
+              Title
+            </label>
+            <input
+              type="text"
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#106C4F]"
+              name="Title"
+              placeholder="Software Developer"
+              value={info.Title}
               onChange={handleChange}
             />
           </div>
+
+          {/* Description */}
           <div className="mb-4">
-            <label className="block text-white text-sm md:text-base">Description</label>
-            <textarea 
-              type="text" 
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#106C4F]" 
-              name="description" 
-              placeholder="message about software" 
-              
+            <label className="block text-sm font-medium text-gray-700">
+              Description
+            </label>
+            <textarea
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#106C4F]"
+              name="description"
+              placeholder="Write a short message about yourself"
+              value={info.description}
               onChange={handleChange}
             />
           </div>
-          
-          <div className="mb-4">
-            <label className="block text-white text-sm md:text-base">Image</label>
-            <input 
-              type="text" 
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#106C4F]" 
-              name="Image" 
-              placeholder="Image URL" 
+
+          {/* Image URL */}
+          <div className="mb-6">
+            <label className="block text-sm font-medium text-gray-700">
+              Image URL
+            </label>
+            <input
+              type="text"
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#106C4F]"
+              name="Image"
+              placeholder="Enter image URL"
               value={info.Image}
               onChange={handleChange}
             />
           </div>
-          <button className="mt-4 bg-indigo-800 text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors duration-300 cursor-pointer">
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="w-full bg-indigo-800 text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors duration-300 cursor-pointer"
+          >
             Create
           </button>
         </form>
       </div>
     </div>
   );
-}
+};
 
 export default Create;

@@ -20,10 +20,10 @@ const Navbar = () => {
         {/* Hamburger Menu Button (Visible on Mobile/Tablet) */}
         <button
           onClick={toggleMenu}
-          className="lg:hidden p-2 focus:outline-none"
+          className="lg:hidden p-1 focus:outline-none"
         >
           <svg
-            className={`w-6 h-6 ${isMenuOpen ? 'hidden' : 'block'}`}
+            className={`w-6 h-3 ${isMenuOpen ? 'hidden' : 'block'}`}
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -85,9 +85,9 @@ const Navbar = () => {
       <div
         className={`lg:hidden ${
           isMenuOpen ? 'block' : 'hidden'
-        } bg-gray-800 mt-2`}
+        } bg-gray-800 `}
       >
-        <ul className="flex flex-col space-y-2 px-4 py-2">
+        <ul className="flex flex-col space-y-1 px-4 py-2">
           <li>
             <Link
               className="block text-sm px-4 py-2 rounded-full hover:bg-gray-700"
