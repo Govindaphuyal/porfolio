@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import { Tween } from 'react-gsap';
+import { motion } from 'framer-motion';
 
 const Form = () => {
   const [users, setUser] = useState(null);
@@ -24,13 +24,13 @@ const Form = () => {
   }, []);
 
   return (
-    <div className="  flex flex-wrap gap-5 px-4 py-8 relative right-50">
-      {users?.users.map((user) => (
-        <Tween
-          to={{ x: '200px' }}
+    <div className="flex flex-wrap gap-5 px-4 py-8">
+      {users?.users.map((user, index) => (
+        <motion.div
           key={user.id}
-          stagger={0.2}
-          ease="elastic.out(0.2, 0.1)"
+          initial={{ x: -200, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: index * 0.2, ease: 'easeOut' }}
         >
           <Link href={`/edit/${user.id}`} className="w-full sm:w-1/2 lg:w-1/3">
             <div className="rounded overflow-hidden shadow-lg hover:shadow-xl transition duration-500 cursor-pointer">
@@ -56,7 +56,7 @@ const Form = () => {
               </div>
             </div>
           </Link>
-        </Tween>
+        </motion.div>
       ))}
     </div>
   );
