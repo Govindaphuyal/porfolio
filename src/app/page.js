@@ -1,6 +1,7 @@
 "use client";
 import { useRef } from "react";
-import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
+import { FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 import Form from "./component/Form";
 
 export default function Slider() {
@@ -34,7 +35,7 @@ export default function Slider() {
           className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition lg:left-8"
           onClick={() => scroll("left")}
         >
-          <ArrowLeftIcon className="w-6 h-6 text-white lg:w-8 lg:h-8" />
+          <FaArrowLeft  className="w-6 h-6 text-white lg:w-8 lg:h-8"/>
         </button>
 
         {/* Slider Container */}
@@ -89,7 +90,7 @@ export default function Slider() {
           className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition lg:right-8"
           onClick={() => scroll("right")}
         >
-          <ArrowRightIcon className="w-6 h-6 text-white lg:w-8 lg:h-8" />
+          <FaArrowRight className="w-6 h-6 text-white lg:w-8 lg:h-8"/>
         </button>
       </div>
 
