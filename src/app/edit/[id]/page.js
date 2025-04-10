@@ -21,7 +21,7 @@ const Edit = ({ params }) => {
 
   useEffect(() => {
     getEdit()
-  }, [])
+  }, [user])
 
   return (
     <div className="bg-gray-100 dark:bg-gray-800 py-8">
