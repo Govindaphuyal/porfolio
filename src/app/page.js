@@ -110,8 +110,7 @@ export default function Slider() {
                 </span>
               ) : (
                 <span className="text-2xl lg:text-4xl font-bold text-white">
-                  It's my Portfolio
-                </span>
+                   {`It's my Portfolio`}                </span>
               )}
             </Slide>
           ))}
