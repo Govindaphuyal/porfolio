@@ -1,7 +1,24 @@
+"use client"
 import Image from 'next/image'
-import React from 'react'
+import React, {useState, useEffect } from 'react'
 
-const edit = () => {
+const edit = ({params}) => {
+    const[user,setUser]=useState()
+    async function getEdit(){
+        const id=await params.id
+    const response=await fetch(`/api/info/${id}`,{
+        method:"GET",
+        headers:{
+          'Content-Type':"application/json"
+        },
+    })
+   console.log(await response.json());
+   setUser(data)
+}
+console.log(user)
+    useEffect(()=>{
+        getEdit()
+    },[])
   return (
     <div className="bg-gray-100 dark:bg-gray-800 py-8">
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

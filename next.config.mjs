@@ -2,10 +2,17 @@
 const nextConfig = {
     images: {
         domains: [
-            "i.pravatar.cc",       
-            "images.unsplash.com", 
-            "cdn.pixabay.com"      
-          ],
+            "pravatar.cc", 
+            "*.pravatar.cc",       
+            "unsplash.com", 
+            "pixabay.com",
+            "cdn.pixabay.com",
+            "*.pixabay.com",
+            "*.unsplash.com",
+            "images.unsplash.com"
+
+               
+          ]
       },
 };
 

@@ -18,7 +18,6 @@ export default function Slider() {
     <>
     
     <div className="relative h-screen overflow-y-hidden scrollbar-hide">
-      {/* Define the right-to-left animation */}
       <style>{`
         @keyframes sequence {
           0% { opacity: 0; transform: translateX(20px); } /* Start off-screen to the right */
@@ -30,7 +29,6 @@ export default function Slider() {
         }
       `}</style>
 
-      {/* Left Arrow */}
       <button 
         className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition"
         onClick={() => scroll('left')}
@@ -38,7 +36,6 @@ export default function Slider() {
         <ArrowLeftIcon className="w-6 h-6 text-white" />
       </button>
 
-      {/* Slider Container */}
       <div 
         ref={sliderRef}
         className="flex overflow-x-auto snap-x snap-mandatory relative z-0 scrollbar-hide"
